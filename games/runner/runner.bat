@@ -1,0 +1,1 @@
+java -jar d:/dev/html5/compiler.jar --js_output_file js/runner.min.js --js src/Astar.js --js src/ImageManager.js --js src/Gatling.js --js src/Soldier.js --js src/ScoreBar.js --js src/Player.js --js src/WeaponTool.js --js src/WeaponFactory.js --js src/EnemyFactory.js --js src/Runner.js

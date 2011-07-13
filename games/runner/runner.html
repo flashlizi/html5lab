@@ -1,0 +1,83 @@
+<html>
+
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>塔防游戏Field Runner - HTML5 Canvas版</title>
+
+<style>
+body
+{
+	padding: 0;
+	margin: 0;
+	background-color: #000000;
+	font-size: 12px;
+}
+
+#main
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 1200px;
+}
+
+#textContainer
+{
+	font-family: sans-serif, verdana;
+	font-size: 12px;
+	color: #FFFFFF;
+	position: absolute;
+	top: 0;
+	left: 0;	
+}
+
+</style>
+
+<script type="text/javascript" src="js/casual-0.1.min.js"></script>
+<script type="text/javascript" src="src/Astar.js"></script>
+<script type="text/javascript" src="src/ImageManager.js"></script>
+<script type="text/javascript" src="src/Gatling.js"></script>
+<script type="text/javascript" src="src/Soldier.js"></script>
+<script type="text/javascript" src="src/ScoreBar.js"></script>
+<script type="text/javascript" src="src/Player.js"></script>
+<script type="text/javascript" src="src/WeaponFactory.js"></script>
+<script type="text/javascript" src="src/WeaponTool.js"></script>
+<script type="text/javascript" src="src/EnemyFactory.js"></script>
+<script type="text/javascript" src="src/Runner.js"></script>
+
+
+<script type="text/javascript">
+function startGame()
+{
+	if (!document.createElement('canvas').getContext)
+	{
+		alert("Sorry, your browser doesn't support canvas, please use Firefox3.6+, Safari5+, Chrome, IE9 etc.");
+		return;
+	} 
+	
+	//align center
+	var left = (document.body.screenWidth - document.getElementById("canvas").width) >> 1;
+	var top = (document.body.clientHeight - document.getElementById("canvas").height) >> 1;
+	document.body.style.marginLeft = left;
+	document.body.style.marginTop = top;
+	
+	//start game
+	Runner.startup();
+}
+</script>
+
+</head>
+
+<body onload="startGame();">	
+	<div id="main" style="background-color:#666666">
+		<div id="canvasContainer">
+			<canvas id="canvas" width="1200" height="580">Sorry, your browser doesn't support canvas, please use Firefox3.6+, Safari5+, Chrome, etc. Do not use IE.</canvas>
+		</div>  
+		<div id="textContainer">
+			<span id="status"></span>
+		</div>
+	</div>	
+	<span style="color:#fff;"><input type="checkbox" checked="true" onclick="this.checked ? bgSound.play() : bgSound.stop();" />Enable Sound</span>
+</body>
+
+</html>

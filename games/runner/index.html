@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+<meta name="author" content="flashlizi - www.riaidea.com" />
+<meta name="Description" content="HTML5 canvas experiment">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Runner - HTML5 Canvas 塔防游戏</title>
+
+<style>
+body
+{
+	padding: 0;
+	margin: 0;
+	background-color: #000000;
+	font-size: 12px;
+}
+
+#main
+{
+	width: 1200px;
+}
+
+#textContainer
+{
+	font-family: sans-serif, verdana;
+	font-size: 12px;
+	color: #FFFFFF;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+</style>
+
+<script type="text/javascript" src="js/casual-0.1.min.js"></script>
+<script type="text/javascript" src="js/runner.min.js"></script>
+
+<script type="text/javascript">
+function startGame()
+{
+	if (!document.createElement('canvas').getContext)
+	{
+		alert("Sorry, your browser doesn't support canvas, please use Firefox3.6+, Safari5+, Chrome10+, IE9+ etc.");
+		return;
+	} 
+	
+	//align center
+	var canvas = document.getElementById("canvas");
+	var bw = window.innerWidth || document.body.offsetWidth;
+	var bh = window.innerHeight || document.body.offsetHeight;
+	var left = (bw - canvas.width) >> 1;
+	var top = (bh - canvas.height) >> 1;
+	document.body.style.marginLeft = left + "px";
+	document.body.style.marginTop = top + "px";
+
+	//start game
+	Runner.startup();
+}
+</script>
+
+</head>
+
+<body onload="startGame();">	
+	<div id="main" style="background-color:#666666">
+		<div id="canvasContainer">
+			<canvas id="canvas" width="1200" height="600"></canvas>
+		</div>  
+		<div id="textContainer">
+			<span id="status"></span>
+		</div>
+	</div>	
+</body>
+
+</html>
